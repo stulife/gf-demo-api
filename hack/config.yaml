@@ -4,7 +4,7 @@
 gfcli:
   gen:
     dao:
-      - link: "mysql:root:demo1234@tcp(mysql.uat.demo.com:3306)/db_demo"
+      - link: "mysql:root:123456@tcp(localhost:3306)/demo"
         path: "./internal"
         removePrefix: "tb_"
         descriptionTag: true

@@ -10,22 +10,21 @@ import (
 
 // User is the golang structure for table user.
 type User struct {
-	Id          uint64      `json:"id"          description:"用户ID"`
-	UserName    string      `json:"userName"    description:"姓名"`
-	Age         int         `json:"age"         description:"年龄"`
-	Sex         int         `json:"sex"         description:"性别（1男 2女 0未知）"`
-	PhoneNumber string      `json:"phoneNumber" description:"手机号码"`
-	CompanyId   string      `json:"companyId"   description:"单位id"`
-	CompanyName string      `json:"companyName" description:"单位"`
-	Status      int         `json:"status"      description:"帐号状态（0正常 1停用）"`
-	OpenId      string      `json:"openId"      description:"来源账号id"`
-	Avatar      string      `json:"avatar"      description:"图像路径"`
-	SysUserId   uint64      `json:"sysUserId"   description:"中台用户ID"`
-	SysPersonId uint64      `json:"sysPersonId" description:"中台人员ID"`
-	AdminFlag   int         `json:"adminFlag"   description:"管理员标志，0否，1是"`
-	DelFlag     int         `json:"delFlag"     description:"删除标志（0代表存在 1代表删除）"`
-	CreateBy    string      `json:"createBy"    description:"创建者"`
-	CreateTime  *gtime.Time `json:"createTime"  description:"创建时间"`
-	UpdateBy    string      `json:"updateBy"    description:"更新者"`
-	UpdateTime  *gtime.Time `json:"updateTime"  description:"更新时间"`
+	Id           uint64      `json:"id"           description:""`
+	UserName     string      `json:"userName"     description:"用户名"`
+	Mobile       string      `json:"mobile"       description:"中国手机不带国家代码，国际手机号格式为：国家代码-手机号"`
+	UserNickname string      `json:"userNickname" description:"用户昵称"`
+	Birthday     int         `json:"birthday"     description:"生日"`
+	UserPassword string      `json:"userPassword" description:"登录密码;cmf_password加密"`
+	UserSalt     string      `json:"userSalt"     description:"加密盐"`
+	UserStatus   uint        `json:"userStatus"   description:"用户状态;0:禁用,1:正常,2:未验证"`
+	UserEmail    string      `json:"userEmail"    description:"用户登录邮箱"`
+	Sex          int         `json:"sex"          description:"性别;0:保密,1:男,2:女"`
+	Avatar       string      `json:"avatar"       description:"用户头像"`
+	Remark       string      `json:"remark"       description:"备注"`
+	IsAdmin      int         `json:"isAdmin"      description:"是否后台管理员 1 是  0   否"`
+	Address      string      `json:"address"      description:"联系地址"`
+	Describe     string      `json:"describe"     description:"描述信息"`
+	CreatedAt    *gtime.Time `json:"createdAt"    description:"创建时间"`
+	UpdatedAt    *gtime.Time `json:"updatedAt"    description:"更新时间"`
 }

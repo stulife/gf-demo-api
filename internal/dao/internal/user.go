@@ -20,46 +20,44 @@ type UserDao struct {
 
 // UserColumns defines and stores column names for table tb_user.
 type UserColumns struct {
-	Id          string // 用户ID
-	UserName    string // 姓名
-	Age         string // 年龄
-	Sex         string // 性别（1男 2女 0未知）
-	PhoneNumber string // 手机号码
-	CompanyId   string // 单位id
-	CompanyName string // 单位
-	Status      string // 帐号状态（0正常 1停用）
-	OpenId      string // 来源账号id
-	Avatar      string // 图像路径
-	SysUserId   string // 中台用户ID
-	SysPersonId string // 中台人员ID
-	AdminFlag   string // 管理员标志，0否，1是
-	DelFlag     string // 删除标志（0代表存在 1代表删除）
-	CreateBy    string // 创建者
-	CreateTime  string // 创建时间
-	UpdateBy    string // 更新者
-	UpdateTime  string // 更新时间
+	Id           string //
+	UserName     string // 用户名
+	Mobile       string // 中国手机不带国家代码，国际手机号格式为：国家代码-手机号
+	UserNickname string // 用户昵称
+	Birthday     string // 生日
+	UserPassword string // 登录密码;cmf_password加密
+	UserSalt     string // 加密盐
+	UserStatus   string // 用户状态;0:禁用,1:正常,2:未验证
+	UserEmail    string // 用户登录邮箱
+	Sex          string // 性别;0:保密,1:男,2:女
+	Avatar       string // 用户头像
+	Remark       string // 备注
+	IsAdmin      string // 是否后台管理员 1 是  0   否
+	Address      string // 联系地址
+	Describe     string // 描述信息
+	CreatedAt    string // 创建时间
+	UpdatedAt    string // 更新时间
 }
 
 //  userColumns holds the columns for table tb_user.
 var userColumns = UserColumns{
-	Id:          "id",
-	UserName:    "user_name",
-	Age:         "age",
-	Sex:         "sex",
-	PhoneNumber: "phone_number",
-	CompanyId:   "company_id",
-	CompanyName: "company_name",
-	Status:      "status",
-	OpenId:      "open_id",
-	Avatar:      "avatar",
-	SysUserId:   "sys_user_id",
-	SysPersonId: "sys_person_id",
-	AdminFlag:   "admin_flag",
-	DelFlag:     "del_flag",
-	CreateBy:    "create_by",
-	CreateTime:  "create_time",
-	UpdateBy:    "update_by",
-	UpdateTime:  "update_time",
+	Id:           "id",
+	UserName:     "user_name",
+	Mobile:       "mobile",
+	UserNickname: "user_nickname",
+	Birthday:     "birthday",
+	UserPassword: "user_password",
+	UserSalt:     "user_salt",
+	UserStatus:   "user_status",
+	UserEmail:    "user_email",
+	Sex:          "sex",
+	Avatar:       "avatar",
+	Remark:       "remark",
+	IsAdmin:      "is_admin",
+	Address:      "address",
+	Describe:     "describe",
+	CreatedAt:    "created_at",
+	UpdatedAt:    "updated_at",
 }
 
 // NewUserDao creates and returns a new DAO object for table data access.

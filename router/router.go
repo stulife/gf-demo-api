@@ -17,12 +17,16 @@ func BindController(group *ghttp.RouterGroup) {
 		group.Group("/", func(group *ghttp.RouterGroup) {
 			group.Middleware(service.Middleware().Cors)
 
+			group.Bind(
+				controller.Captcha,
+				controller.Login,
+			)
+			//登录验证拦截
 			service.GfToken().Middleware(group)
 			//context拦截器
 			group.Middleware(service.Middleware().Ctx)
-			group.Bind(controller.Hello)
-			//登录验证拦截
 
+			group.Bind(controller.Hello)
 		})
 	})
 }

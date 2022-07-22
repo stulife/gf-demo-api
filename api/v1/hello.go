@@ -5,10 +5,9 @@ import (
 )
 
 type HelloReq struct {
-	g.Meta `path:"/hello" tags:"Hello" method:"get" summary:"You first hello api"`
+	g.Meta `path:"/hello" tags:"Hello" method:"get" summary:"hello"`
 }
 type HelloRes struct {
 	g.Meta `mime:"application/json"`
-	Key    string `json:"key"`
-	Img    string `json:"img"`
+	Name   string `json:"name"`
 }

@@ -34,6 +34,10 @@ func HandlerResponse(r *ghttp.Request) {
 			defaultResponse.Code = model.CodeInternalError.Code()
 			defaultResponse.Message = model.CodeInternalError.Desc()
 		}
+		if code == gcode.CodeValidationFailed {
+			defaultResponse.Code = model.CodeValidationFailed.Code()
+			defaultResponse.Message = gerror.Stack(err)
+		}
 		r.Response.ClearBuffer()
 	} else if r.Response.Status > 0 && r.Response.Status != http.StatusOK {
 		switch r.Response.Status {

@@ -11,23 +11,22 @@ import (
 
 // User is the golang structure of table tb_user for DAO operations like Where/Data.
 type User struct {
-	g.Meta      `orm:"table:tb_user, do:true"`
-	Id          interface{} // 用户ID
-	UserName    interface{} // 姓名
-	Age         interface{} // 年龄
-	Sex         interface{} // 性别（1男 2女 0未知）
-	PhoneNumber interface{} // 手机号码
-	CompanyId   interface{} // 单位id
-	CompanyName interface{} // 单位
-	Status      interface{} // 帐号状态（0正常 1停用）
-	OpenId      interface{} // 来源账号id
-	Avatar      interface{} // 图像路径
-	SysUserId   interface{} // 中台用户ID
-	SysPersonId interface{} // 中台人员ID
-	AdminFlag   interface{} // 管理员标志，0否，1是
-	DelFlag     interface{} // 删除标志（0代表存在 1代表删除）
-	CreateBy    interface{} // 创建者
-	CreateTime  *gtime.Time // 创建时间
-	UpdateBy    interface{} // 更新者
-	UpdateTime  *gtime.Time // 更新时间
+	g.Meta       `orm:"table:tb_user, do:true"`
+	Id           interface{} //
+	UserName     interface{} // 用户名
+	Mobile       interface{} // 中国手机不带国家代码，国际手机号格式为：国家代码-手机号
+	UserNickname interface{} // 用户昵称
+	Birthday     interface{} // 生日
+	UserPassword interface{} // 登录密码;cmf_password加密
+	UserSalt     interface{} // 加密盐
+	UserStatus   interface{} // 用户状态;0:禁用,1:正常,2:未验证
+	UserEmail    interface{} // 用户登录邮箱
+	Sex          interface{} // 性别;0:保密,1:男,2:女
+	Avatar       interface{} // 用户头像
+	Remark       interface{} // 备注
+	IsAdmin      interface{} // 是否后台管理员 1 是  0   否
+	Address      interface{} // 联系地址
+	Describe     interface{} // 描述信息
+	CreatedAt    *gtime.Time // 创建时间
+	UpdatedAt    *gtime.Time // 更新时间
 }
