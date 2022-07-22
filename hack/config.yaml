@@ -1,0 +1,12 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+      - link: "mysql:root:demo1234@tcp(mysql.uat.demo.com:3306)/db_demo"
+        path: "./internal"
+        removePrefix: "tb_"
+        descriptionTag: true
+        noModelComment: true
+        tables: ""
