@@ -1,16 +1,26 @@
-FROM loads/alpine:3.8
+
+FROM golang:alpine
+WORKDIR /data
+ADD . ./
+
+ENV GO111MODULE=on
+ENV GOPROXY="https://goproxy.io"
+RUN go build -o app .
+
+
+FROM alpine:latest
 
 ###############################################################################
 #                                INSTALLATION
 ###############################################################################
 
-ENV WORKDIR                 /app
-ADD resource                $WORKDIR/
-ADD ./temp/linux_amd64/main $WORKDIR/main
-RUN chmod +x $WORKDIR/main
+WORKDIR /home/data
+COPY --from=0 /data/app  /home/data
 
-###############################################################################
-#                                   START
-###############################################################################
-WORKDIR $WORKDIR
-CMD ./main
+COPY --from=0 /data/manifest  /home/data/manifest
+COPY --from=0 /data/resource  /home/data/resource
+
+
+EXPOSE 8000
+
+ENTRYPOINT  ["./app"]

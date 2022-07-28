@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  gf.demo.api:
+    image: ${TAG}
+    container_name: ${TAG}
+    build:
+      context: .
+      dockerfile: manifest/docker/Dockerfile
+    restart: always
+    ports:
+      - ${PORT}:8000
+
